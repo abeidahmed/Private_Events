@@ -1,1 +1,15 @@
-<h1>Show this</h1>
+<main>
+  <h1>Create new user <h1>
+  <div class="container">
+    <%= form_with model: @user do |form| %>
+      <p>
+        <%= form.text_field :name, palceholder: 'Name'%>
+      </p>
+      <p>
+        <%= form.submit 'Create account'%>
+      </p>
+    <% end %>
+  <div> 
+
+
+</main>
