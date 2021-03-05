@@ -3,12 +3,14 @@
   <div class="container">
     <%= form_with url: sessions_path do |form| %>
       <p>
-        <%= form.text_field :name, palceholder: 'Name'%>
+        <%= form.text_field :name, palceholder: 'Name', autocomplete: "off" %>
       </p>
       <p>
         <%= form.submit 'Login'%>
       </p>
     <% end %>
   <div> 
+
+  <%= link_to 'Create Account', new_user_path, class: 'btn'%>
 
 </main>
