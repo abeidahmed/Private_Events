@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :ensure_login, only: %i[new create]
+  # skip_before_action :ensure_login, only: %i[new create]
 
   def new
     @user = User.new
@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
   def create 
     @user = User.find_by(name: params[:name])
     if @user 
-      session[:user_id] = user.id
-      redirect_to user_path, notice: "Welcome #{user.id}!"
+      session[:user_id] = @user.id
+      redirect_to events_path, notice: "Welcome #{@user.id}!"
     else
       flash.now.alert = 'Login faild'
       render :new

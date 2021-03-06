@@ -1,14 +1,19 @@
 <main>
-  <h1>Create new user <h1>
-  <div class="container">
+  <h1 class="h3" >Create new user <h1><br />
+  <div class="container jumbotron text-center w-50">
     <%= form_with model: @user do |form| %>
       <p>
-        <%= form.text_field :name, palceholder: 'Name'%>
+        <%= form.label :name %>
       </p>
       <p>
-        <%= form.submit 'Create account'%>
+        <%= form.text_field :name, class: 'form-control'%>
+      </p>
+      <p>
+        <%= form.submit 'Create account', class: 'btn btn-outline-success'%>
       </p>
     <% end %>
   <div> 
-
+<%= link_to 'Login', new_session_path, class: 'btn bg-primary text-white'%>
 </main>
+
+
