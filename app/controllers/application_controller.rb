@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
 
     def ensure_login
-      redirect_to sessions_path unless session[:user_id]
+      redirect_to new_session_path unless current_user
     end
 
     def current_user
