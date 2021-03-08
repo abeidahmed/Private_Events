@@ -3,6 +3,7 @@ class EventsController < ApplicationController
     @event = Event.all
     @past_events = Event.past
     @upcoming_events = Event.upcoming_event
+    @attendance = Attendance.new
   end
 
   def new
