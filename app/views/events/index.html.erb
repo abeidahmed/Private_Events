@@ -3,17 +3,18 @@
     <h3>Up coming Events</h3>
 
     <% @upcoming_events.each do |t| %>
-      <%= t.details%>
+      <%= t.details%><br /><br />
+      <%= t.date %>
       <br />
-    <% end %> 
+    <% end %><br /><br />
   </div><br /><br /><hr />
 
   <div>
     <h3>Past events</h3>
 
     <% @past_events.each do |t| %>
-      <%= t.details%>
-      <br />
-    <% end %> 
+      <%= t.details%><br /><br />
+      <%= t.date %>
+    <% end %><br /><br /> 
   </div>
 </main>

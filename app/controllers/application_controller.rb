@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception 
 
-  # before_action :ensure_login 
+    helper_method :current_user, :logged_in?
 
     def ensure_login
       redirect_to sessions_path unless session[:user_id]
