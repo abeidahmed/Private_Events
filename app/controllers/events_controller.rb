@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
+  before_action :ensure_login, only: %i[create show]
   def index
     @event = Event.all
     @past_events = Event.past
     @upcoming_events = Event.upcoming_event
-    @attendance = Attendance.new
+
   end
 
   def new

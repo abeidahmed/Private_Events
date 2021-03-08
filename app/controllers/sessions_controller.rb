@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :ensure_login, only: %i[new create]
+  before_action :ensure_login, only: %i[new create destroy]
 
   def new
     @user = User.new
@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id].delete(:user_id) if logged_in?
+    session[:user_id] = nil
     flash[:notice] = 'You have successfully logged out.'
-    redirect_to new_user_path
+    redirect_to new_user_pat
   end
 end
