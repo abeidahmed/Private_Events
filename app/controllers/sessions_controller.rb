@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
-  before_action :ensure_login, only: %i[new create destroy]
+  before_action :ensure_login, only: %i[destroy]
 
   def new
     @user = User.new
   end
 
-  def create 
+  def create
     @user = User.find_by(name: params[:name])
-    if @user 
+    if @user
       session[:user_id] = @user.id
       redirect_to events_path, notice: "Welcome #{@user.id}!"
     else
