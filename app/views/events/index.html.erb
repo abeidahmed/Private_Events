@@ -1,20 +1,24 @@
 <main><br />
   <div>
-    <h3>Up coming Events</h3>
+    <h3>Up coming Events</h3><br />
 
-    <% @upcoming_events.each do |t| %>
-      <%= t.details%><br /><br />
-      <%= t.date %>
-      <br />
-    <% end %><br /><br />
+    <div>
+      <% @upcoming_events.each do |t| %>
+        <strong>Description : </strong><%= t.details%><br /><br />
+        <strong>Date : </strong><%= t.date %>
+        <br />
+      <% end %><br /><br />
+    </div>
   </div><br /><br /><hr />
 
   <div>
     <h3>Past events</h3>
 
-    <% @past_events.each do |t| %>
-      <%= t.details%><br /><br />
-      <%= t.date %>
-    <% end %><br /><br /> 
+    <div class="jumbotron">
+      <% @past_events.each do |t| %>
+        <strong>Description : </strong><%= t.details%><br /><br />
+        <strong>Date : </strong><%= t.date %><br /><br /><br />
+      <% end %><br /><br /> 
+    </div>
   </div>
 </main>
