@@ -25,5 +25,16 @@ class EventsController < ApplicationController
     @created_events = current_user.created_events
   end
 
+  def show 
+    @attendance = current_user.attendances.find_or_initialize_by(attendance_params)
+
+    if @attendance.save
+      redirect_to root_path
+
+    else
+      render :new
+    end
+  end
+
 
 end
