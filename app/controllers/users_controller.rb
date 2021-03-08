@@ -19,4 +19,10 @@ class UsersController < ApplicationController
   def show
     @user = find_by(params[:name])
   end
+
+  def destroy
+    session.delete(:current_user)
+    flash[:notice] = 'You have successfully logged out.'
+    redirect_to root_url
+  end
 end

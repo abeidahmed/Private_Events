@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception 
 
   # before_action :ensure_login 
 
@@ -7,11 +8,15 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      @current_user ||= User.find(sessions[:user_id]) if session[:user_id]
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def logged_in?
+      current_user
     end
 
     def event_params 
-      params.require(:event).permit(:date)
+      params.require(:event).permit(:date, :details)
     end
 
     def user_params
